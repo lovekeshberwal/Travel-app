@@ -1,0 +1,172 @@
+<div class="hero min-h-96 bg-gradient-to-r from-warning to-error"></div>
+    <div class="hero-content text-center text-warning-content">
+        <div class="max-w-md">
+            <h1 class="text-5xl font-bold">Book Your Trip</h1>
+            <p class="text-xl mt-4">Start your adventure today</p>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto px-4 py-20">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <!-- Booking Form -->
+        <div class="card bg-base-100 shadow-xl">
+            <div class="card-body">
+                <h2 class="card-title text-2xl mb-6">Trip Details</h2>
+                <form class="space-y-6">
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Destination</span>
+                        </label>
+                        <select class="select select-bordered select-lg">
+                            <option disabled selected>Choose your destination</option>
+                            <option>Bali, Indonesia</option>
+                            <option>Paris, France</option>
+                            <option>Tokyo, Japan</option>
+                            <option>New York, USA</option>
+                            <option>Rome, Italy</option>
+                        </select>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text">Check-in Date</span>
+                            </label>
+                            <input type="date" class="input input-bordered input-lg">
+                        </div>
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text">Check-out Date</span>
+                            </label>
+                            <input type="date" class="input input-bordered input-lg">
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text">Adults</span>
+                            </label>
+                            <select class="select select-bordered select-lg">
+                                <option>1 Adult</option>
+                                <option>2 Adults</option>
+                                <option>3 Adults</option>
+                                <option>4+ Adults</option>
+                            </select>
+                        </div>
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text">Children</span>
+                            </label>
+                            <select class="select select-bordered select-lg">
+                                <option>0 Children</option>
+                                <option>1 Child</option>
+                                <option>2 Children</option>
+                                <option>3+ Children</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Trip Type</span>
+                        </label>
+                        <div class="grid grid-cols-2 gap-4">
+                            <label class="label cursor-pointer">
+                                <span class="label-text">Adventure</span>
+                                <input type="radio" name="trip-type" class="radio radio-primary" checked>
+                            </label>
+                            <label class="label cursor-pointer">
+                                <span class="label-text">Relaxation</span>
+                                <input type="radio" name="trip-type" class="radio radio-primary">
+                            </label>
+                            <label class="label cursor-pointer">
+                                <span class="label-text">Cultural</span>
+                                <input type="radio" name="trip-type" class="radio radio-primary">
+                            </label>
+                            <label class="label cursor-pointer">
+                                <span class="label-text">Business</span>
+                                <input type="radio" name="trip-type" class="radio radio-primary">
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Special Requests</span>
+                        </label>
+                        <textarea class="textarea textarea-bordered h-24" placeholder="Any special requirements or preferences..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">
+                        <i class="fas fa-credit-card mr-2"></i>
+                        Proceed to Payment
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Booking Summary -->
+        <div class="space-y-6">
+            <div class="card bg-base-100 shadow-xl">
+                <div class="card-body">
+                    <h3 class="card-title">Booking Summary</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between">
+                            <span>Destination:</span>
+                            <span class="font-semibold">Bali, Indonesia</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Duration:</span>
+                            <span class="font-semibold">7 Days, 6 Nights</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Guests:</span>
+                            <span class="font-semibold">2 Adults</span>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="flex justify-between">
+                            <span>Base Price:</span>
+                            <span>$1,200</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Taxes & Fees:</span>
+                            <span>$180</span>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="flex justify-between text-lg font-bold">
+                            <span>Total:</span>
+                            <span class="text-primary">$1,380</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Why Choose Us -->
+            <div class="card bg-base-100 shadow-lg">
+                <div class="card-body">
+                    <h3 class="card-title">Why Choose Us?</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-shield-alt text-primary"></i>
+                            <span>100% Secure Booking</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-undo text-primary"></i>
+                            <span>Free Cancellation</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-headset text-primary"></i>
+                            <span>24/7 Customer Support</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-medal text-primary"></i>
+                            <span>Best Price Guarantee</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
