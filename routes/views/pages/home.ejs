@@ -1,0 +1,92 @@
+<!-- Hero Section -->
+<div class="hero min-h-screen bg-gradient-to-r from-blue-600 to-purple-600 relative overflow-hidden">
+    <div class="hero-overlay bg-opacity-60"></div>
+    <div class="hero-content text-center text-neutral-content z-10">
+        <div class="max-w-md animate-slide-up">
+            <h1 class="mb-5 text-5xl font-bold">Explore the World</h1>
+            <p class="mb-5 text-xl">Discover amazing places and create unforgettable memories with Travel Explorer</p>
+            <a href="/destinations" class="btn btn-primary btn-lg">
+                <i class="fas fa-compass mr-2"></i>
+                Start Exploring
+            </a>
+        </div>
+    </div>
+    <div class="absolute inset-0 bg-[url('/images/hero-bg.jpg')] bg-cover bg-center"></div>
+</div>
+
+<!-- Featured Destinations -->
+<section class="py-20 bg-base-100">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold mb-4">Featured Destinations</h2>
+            <p class="text-xl text-base-content/70">Discover the most beautiful places on Earth</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <% destinations.forEach(destination => { %>
+                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <figure class="relative overflow-hidden">
+                        <img src="<%= destination.image %>" alt="<%= destination.name %>" class="w-full h-64 object-cover transition-transform duration-300 hover:scale-110">
+                        <div class="absolute top-4 right-4">
+                            <div class="badge badge-primary">
+                                <i class="fas fa-star mr-1"></i>
+                                <%= destination.rating %>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="card-body">
+                        <h2 class="card-title">
+                            <%= destination.name %>
+                            <div class="badge badge-secondary">Popular</div>
+                        </h2>
+                        <p class="text-base-content/70">Experience the beauty and culture of this amazing destination.</p>
+                        <div class="card-actions justify-between items-center mt-4">
+                            <div class="text-2xl font-bold text-primary"><%= destination.price %></div>
+                            <a href="/destination/<%= destination.id %>" class="btn btn-primary btn-sm">
+                                <i class="fas fa-arrow-right mr-1"></i>
+                                Explore
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</section>
+
+<!-- Popular Tours -->
+<section class="py-20 bg-base-200">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold mb-4">Popular Tours</h2>
+            <p class="text-xl text-base-content/70">Join our expertly crafted tour packages</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <% tours.forEach(tour => { %>
+                <div class="card lg:card-side bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <figure class="lg:w-1/2">
+                        <img src="<%= tour.image %>" alt="<%= tour.name %>" class="w-full h-full object-cover">
+                    </figure>
+                    <div class="card-body lg:w-1/2">
+                        <h2 class="card-title text-2xl"><%= tour.name %></h2>
+                        <div class="flex items-center gap-4 my-2">
+                            <div class="badge badge-outline">
+                                <i class="fas fa-clock mr-1"></i>
+                                <%= tour.duration %>
+                            </div>
+                            <div class="text-xl font-bold text-primary"><%= tour.price %></div>
+                        </div>
+                        <p class="text-base-content/70 flex-grow">An incredible journey through breathtaking landscapes and cultural experiences.</p>
+                        <div class="card-actions justify-end mt-4">
+                            <a href="/tour/<%= tour.id %>" class="btn btn-primary">
+                                <i class="fas fa-info-circle mr-1"></i>
+                                Learn More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</section>
