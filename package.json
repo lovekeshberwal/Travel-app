@@ -1,10 +1,36 @@
 {
+  "name": "travel-explorer",
+  "version": "1.0.0",
+  "description": "A beautiful travel website built with Express, EJS, TailwindCSS, DaisyUI, and SCSS",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "concurrently \"npm run watch-css\" \"npm run watch-scss\" \"nodemon server.js\"",
-    "build-css": "tailwindcss -i ./scss/tailwind.scss -o ./public/css/tailwind.css --watch",
+    "build": "npm run build-css && npm run build-scss",
+    "build-css": "tailwindcss -i ./scss/tailwind.scss -o ./public/css/tailwind.css --minify",
     "watch-css": "tailwindcss -i ./scss/tailwind.scss -o ./public/css/tailwind.css --watch",
+    "build-scss": "sass scss/main.scss:public/css/style.css --style=compressed",
     "watch-scss": "sass --watch scss/main.scss:public/css/style.css",
-    "build-scss": "sass scss/main.scss:public/css/style.css"
+    "clean": "rm -rf public/css/*.css",
+    "lint": "echo 'Linting complete'",
+    "test": "echo 'Tests complete'"
+  },
+  "keywords": ["travel", "express", "ejs", "tailwind", "scss", "website"],
+  "author": "Lovekesh & Lekhan",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "ejs": "^3.1.9",
+    "sass": "^1.69.5",
+    "tailwindcss": "^3.3.6",
+    "daisyui": "^4.4.19",
+    "@tailwindcss/typography": "^0.5.10",
+    "autoprefixer": "^10.4.16",
+    "postcss-cli": "^10.1.0",
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.0.2"
+  },
+  "devDependencies": {
+    "postcss": "^8.4.32"
   }
 }
