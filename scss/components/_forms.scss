@@ -1,0 +1,494 @@
+// Form components
+.form {
+    .form-group {
+      margin-bottom: $spacing-lg;
+      
+      .form-label {
+        display: block;
+        font-weight: 500;
+        margin-bottom: $spacing-sm;
+        color: #374151;
+        
+        .required {
+          color: #ef4444;
+          margin-left: $spacing-xs;
+        }
+      }
+      
+      .form-input,
+      .form-select,
+      .form-textarea {
+        width: 100%;
+        padding: $spacing-md;
+        border: 2px solid #e5e7eb;
+        border-radius: $radius-lg;
+        font-size: $font-size-md;
+        @include transition();
+        background: white;
+        
+        &:focus {
+          outline: none;
+          border-color: $primary-color;
+          box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+        }
+        
+        &:disabled {
+          background: #f9fafb;
+          color: #9ca3af;
+          cursor: not-allowed;
+        }
+        
+        &.error {
+          border-color: #ef4444;
+          
+          &:focus {
+            box-shadow: 0 0 0 3px rgba(#ef4444, 0.1);
+          }
+        }
+        
+        &.success {
+          border-color: #10b981;
+          
+          &:focus {
+            box-shadow: 0 0 0 3px rgba(#10b981, 0.1);
+          }
+        }
+      }
+      
+      .form-textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+      
+      .form-help {
+        font-size: $font-size-sm;
+        color: #6b7280;
+        margin-top: $spacing-xs;
+      }
+      
+      .form-error {
+        color: #ef4444;
+        font-size: $font-size-sm;
+        margin-top: $spacing-xs;
+        @include flex-center;
+        justify-content: flex-start;
+        gap: $spacing-xs;
+      }
+      
+      .form-success {
+        color: #10b981;
+        font-size: $font-size-sm;
+        margin-top: $spacing-xs;
+        @include flex-center;
+        justify-content: flex-start;
+        gap: $spacing-xs;
+      }
+    }
+    
+    // Input groups
+    .input-group {
+      position: relative;
+      @include flex-center;
+      
+      .input-group-text {
+        background: #f9fafb;
+        border: 2px solid #e5e7eb;
+        padding: $spacing-md;
+        color: #6b7280;
+        
+        &.prefix {
+          border-right: none;
+          border-radius: $radius-lg 0 0 $radius-lg;
+        }
+        
+        &.suffix {
+          border-left: none;
+          border-radius: 0 $radius-lg $radius-lg 0;
+        }
+      }
+      
+      .form-input {
+        &.has-prefix {
+          border-left: none;
+          border-radius: 0 $radius-lg $radius-lg 0;
+        }
+        
+        &.has-suffix {
+          border-right: none;
+          border-radius: $radius-lg 0 0 $radius-lg;
+        }
+      }
+    }
+    
+    // Checkbox and radio
+    .form-check {
+      @include flex-center;
+      justify-content: flex-start;
+      gap: $spacing-sm;
+      margin-bottom: $spacing-md;
+      
+      .form-check-input {
+        width: 18px;
+        height: 18px;
+        border: 2px solid #d1d5db;
+        border-radius: $radius-sm;
+        @include transition();
+        
+        &:checked {
+          background: $primary-color;
+          border-color: $primary-color;
+        }
+        
+        &[type="radio"] {
+          border-radius: 50%;
+        }
+      }
+      
+      .form-check-label {
+        color: #374151;
+        cursor: pointer;
+      }
+    }
+    
+    // File input
+    .file-input {
+      position: relative;
+      
+      .file-input-label {
+        display: block;
+        padding: $spacing-lg;
+        border: 2px dashed #d1d5db;
+        border-radius: $radius-lg;
+        text-align: center;
+        cursor: pointer;
+        @include transition();
+        
+        &:hover {
+          border-color: $primary-color;
+          background: rgba($primary-color, 0.05);
+        }
+        
+        .file-icon {
+          font-size: $font-size-3xl;
+          color: #9ca3af;
+          margin-bottom: $spacing-md;
+        }
+        
+        .file-text {
+          color: #6b7280;
+          
+          .file-link {
+            color: $primary-color;
+            text-decoration: underline;
+          }
+        }
+      }
+      
+      .file-input-field {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+      }
+      
+      &.has-file .file-input-label {
+        border-color: #10b981;
+        background: rgba(#10b981, 0.05);
+        
+        .file-icon {
+          color: #10b981;
+        }
+      }
+    }
+  }
+  
+  // Button styles
+  .btn {
+    @include button-base;
+    
+    &.btn-primary {
+      @include button-primary;
+    }
+    
+    &.btn-secondary {
+      background: #6b7280;
+      color: white;
+      
+      &:hover {
+        background: #4b5563;
+        transform: translateY(-2px);
+      }
+    }
+    
+    &.btn-outline {
+      border: 2px solid $primary-color;
+      color: $primary-color;
+      background: transparent;
+      
+      &:hover {
+        background: $primary-color;
+        color: white;
+      }
+    }
+    
+    &.btn-ghost {
+      background: transparent;
+      color: $primary-color;
+      
+      &:hover {
+        background: rgba($primary-color, 0.1);
+      }
+    }
+    
+    &.btn-sm {
+      padding: $spacing-xs $spacing-md;
+      font-size: $font-size-sm;
+    }
+    
+    &.btn-lg {
+      padding: $spacing-lg $spacing-2xl;
+      font-size: $font-size-lg;
+    }
+    
+    &.btn-block {
+      width: 100%;
+    }
+    
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      
+      &:hover {
+        transform: none;
+      }
+    }
+    
+    // Loading state
+    &.loading {
+      position: relative;
+      color: transparent;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 16px;
+        height: 16px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-top: 2px solid white;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        animation: spin 1s linear infinite;
+      }
+    }
+  }
+  
+  // Modal styles
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    @include flex-center;
+    z-index: $z-modal;
+    opacity: 0;
+    visibility: hidden;
+    @include transition();
+    
+    &.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .modal-content {
+      background: white;
+      border-radius: $radius-xl;
+      max-width: 500px;
+      width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+      transform: scale(0.9);
+      @include transition();
+      
+      .modal.show & {
+        transform: scale(1);
+      }
+      
+      .modal-header {
+        padding: $spacing-xl;
+        border-bottom: 1px solid #e5e7eb;
+        @include flex-between;
+        
+        .modal-title {
+          font-size: $font-size-xl;
+          font-weight: 600;
+          color: #1f2937;
+        }
+        
+        .modal-close {
+          background: none;
+          border: none;
+          font-size: $font-size-xl;
+          color: #9ca3af;
+          cursor: pointer;
+          @include transition();
+          
+          &:hover {
+            color: #374151;
+          }
+        }
+      }
+      
+      .modal-body {
+        padding: $spacing-xl;
+      }
+      
+      .modal-footer {
+        padding: $spacing-xl;
+        border-top: 1px solid #e5e7eb;
+        @include flex-center;
+        justify-content: flex-end;
+        gap: $spacing-md;
+      }
+    }
+  }
+  
+  // Toast notifications
+  .toast {
+    position: fixed;
+    top: $spacing-lg;
+    right: $spacing-lg;
+    background: white;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-xl;
+    padding: $spacing-lg;
+    max-width: 400px;
+    z-index: $z-tooltip;
+    transform: translateX(100%);
+    @include transition();
+    
+    &.show {
+      transform: translateX(0);
+    }
+    
+    &.success {
+      border-left: 4px solid #10b981;
+      
+      .toast-icon {
+        color: #10b981;
+      }
+    }
+    
+    &.error {
+      border-left: 4px solid #ef4444;
+      
+      .toast-icon {
+        color: #ef4444;
+      }
+    }
+    
+    &.warning {
+      border-left: 4px solid #f59e0b;
+      
+      .toast-icon {
+        color: #f59e0b;
+      }
+    }
+    
+    &.info {
+      border-left: 4px solid #3b82f6;
+      
+      .toast-icon {
+        color: #3b82f6;
+      }
+    }
+    
+    .toast-content {
+      @include flex-center;
+      justify-content: flex-start;
+      gap: $spacing-md;
+      
+      .toast-icon {
+        font-size: $font-size-xl;
+      }
+      
+      .toast-message {
+        flex: 1;
+        
+        .toast-title {
+          font-weight: 600;
+          margin-bottom: $spacing-xs;
+        }
+        
+        .toast-text {
+          color: #6b7280;
+          font-size: $font-size-sm;
+        }
+      }
+      
+      .toast-close {
+        background: none;
+        border: none;
+        color: #9ca3af;
+        cursor: pointer;
+        @include transition();
+        
+        &:hover {
+          color: #374151;
+        }
+      }
+    }
+  }
+  
+  // Responsive form adjustments
+  @include mobile-only {
+    .form {
+      .form-group {
+        margin-bottom: $spacing-md;
+      }
+      
+      .input-group {
+        flex-direction: column;
+        
+        .input-group-text {
+          border-radius: $radius-lg;
+          border-bottom: none;
+          
+          &.suffix {
+            border-top: none;
+            border-bottom: 2px solid #e5e7eb;
+          }
+        }
+        
+        .form-input {
+          border-radius: $radius-lg;
+          
+          &.has-prefix,
+          &.has-suffix {
+            border-radius: $radius-lg;
+            border: 2px solid #e5e7eb;
+          }
+        }
+      }
+    }
+    
+    .modal .modal-content {
+      width: 95%;
+      margin: $spacing-lg;
+      
+      .modal-header,
+      .modal-body,
+      .modal-footer {
+        padding: $spacing-lg;
+      }
+    }
+    
+    .toast {
+      top: $spacing-md;
+      right: $spacing-md;
+      left: $spacing-md;
+      max-width: none;
+    }
+  }
