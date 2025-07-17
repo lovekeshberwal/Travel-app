@@ -1,0 +1,122 @@
+<div class="hero min-h-96 bg-gradient-to-r from-info to-success"></div>
+    <div class="hero-content text-center text-info-content">
+        <div class="max-w-md">
+            <h1 class="text-5xl font-bold">Travel Blog</h1>
+            <p class="text-xl mt-4">Stories, tips, and inspiration for your next adventure</p>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto px-4 py-20">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Main Content -->
+        <div class="lg:col-span-2 space-y-8">
+            <% for(let i = 1; i <= 6; i++) { %>
+                <article class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <figure class="relative overflow-hidden h-64">
+                        <img src="/images/blog<%= i %>.jpg" alt="Blog Post <%= i %>" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                        <div class="absolute top-4 left-4">
+                            <div class="badge badge-primary">Travel Tips</div>
+                        </div>
+                    </figure>
+                    <div class="card-body">
+                        <div class="flex items-center gap-4 text-sm text-base-content/60 mb-2">
+                            <span><i class="fas fa-calendar mr-1"></i>March 15, 2024</span>
+                            <span><i class="fas fa-user mr-1"></i>Travel Explorer</span>
+                            <span><i class="fas fa-clock mr-1"></i>5 min read</span>
+                        </div>
+                        <h2 class="card-title text-2xl hover:text-primary transition-colors cursor-pointer">
+                            <%= i === 1 ? "10 Essential Travel Tips for First-Time Backpackers" : 
+                                i === 2 ? "Hidden Gems of Southeast Asia You Must Visit" :
+                                i === 3 ? "Budget Travel: How to See the World Without Breaking the Bank" :
+                                i === 4 ? "The Ultimate Guide to Solo Female Travel" :
+                                i === 5 ? "Sustainable Tourism: How to Travel Responsibly" :
+                                "Photography Tips for Capturing Perfect Travel Moments" %>
+                        </h2>
+                        <p class="text-base-content/70">
+                            Discover amazing insights and practical advice for your next adventure. 
+                            From budget-friendly tips to hidden destinations, we've got you covered.
+                        </p>
+                        <div class="card-actions justify-between items-center mt-4">
+                            <div class="flex gap-2">
+                                <div class="badge badge-outline">Adventure</div>
+                                <div class="badge badge-outline">Tips</div>
+                            </div>
+                            <button class="btn btn-primary btn-sm">
+                                <i class="fas fa-arrow-right mr-1"></i>
+                                Read More
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            <% } %>
+            
+            <!-- Pagination -->
+            <div class="flex justify-center">
+                <div class="btn-group">
+                    <button class="btn">«</button>
+                    <button class="btn btn-active">1</button>
+                    <button class="btn">2</button>
+                    <button class="btn">3</button>
+                    <button class="btn">»</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sidebar -->
+        <div class="lg:col-span-1 space-y-8">
+            <!-- Search -->
+            <div class="card bg-base-100 shadow-lg">
+                <div class="card-body">
+                    <h3 class="card-title">Search</h3>
+                    <div class="form-control">
+                        <div class="input-group">
+                            <input type="text" placeholder="Search articles..." class="input input-bordered flex-1">
+                            <button class="btn btn-square btn-primary">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Categories -->
+            <div class="card bg-base-100 shadow-lg">
+                <div class="card-body">
+                    <h3 class="card-title">Categories</h3>
+                    <ul class="menu menu-compact">
+                        <li><a>Travel Tips <span class="badge badge-sm">12</span></a></li>
+                        <li><a>Destinations <span class="badge badge-sm">8</span></a></li>
+                        <li><a>Adventure <span class="badge badge-sm">15</span></a></li>
+                        <li><a>Culture <span class="badge badge-sm">6</span></a></li>
+                        <li><a>Food & Drink <span class="badge badge-sm">9</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Recent Posts -->
+            <div class="card bg-base-100 shadow-lg">
+                <div class="card-body">
+                    <h3 class="card-title">Recent Posts</h3>
+                    <div class="space-y-4">
+                        <% for(let i = 1; i <= 3; i++) { %>
+                            <div class="flex gap-3">
+                                <div class="avatar">
+                                    <div class="w-12 h-12 rounded">
+                                        <img src="/images/blog<%= i %>.jpg" alt="Recent Post">
+                                    </div>
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="font-semibold text-sm hover:text-primary cursor-pointer">
+                                        Amazing Travel Destination #<%= i %>
+                                    </h4>
+                                    <p class="text-xs text-base-content/60">March <%= 10 + i %>, 2024</p>
+                                </div>
+                            </div>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
