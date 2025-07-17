@@ -1,0 +1,125 @@
+// Animation utilities
+.fade-in {
+    animation: fadeIn 0.6s ease-in-out;
+  }
+  
+  .slide-up {
+    animation: slideUp 0.8s ease-out;
+  }
+  
+  .slide-in-left {
+    animation: slideInLeft 0.6s ease-out;
+  }
+  
+  .slide-in-right {
+    animation: slideInRight 0.6s ease-out;
+  }
+  
+  .bounce-in {
+    animation: bounceIn 0.8s ease-out;
+  }
+  
+  .pulse-slow {
+    animation: pulse 3s infinite;
+  }
+  
+  // Hover effects
+  .hover-lift {
+    @include transition(transform);
+    
+    &:hover {
+      transform: translateY(-8px);
+    }
+  }
+  
+  .hover-scale {
+    @include transition(transform);
+    
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  
+  .hover-rotate {
+    @include transition(transform);
+    
+    &:hover {
+      transform: rotate(5deg);
+    }
+  }
+  
+  // Background utilities
+  .bg-gradient-primary {
+    background: $gradient-primary;
+  }
+  
+  .bg-gradient-hero {
+    background: $gradient-hero;
+  }
+  
+  .bg-pattern {
+    background-image: 
+      radial-gradient(circle at 25px 25px, rgba(255,255,255,.2) 2%, transparent 50%),
+      radial-gradient(circle at 75px 75px, rgba(255,255,255,.2) 2%, transparent 50%);
+    background-size: 100px 100px;
+  }
+  
+  // Text utilities
+  .text-gradient {
+    @include text-gradient();
+  }
+  
+  .text-shadow {
+    @include text-shadow();
+  }
+  
+  // Spacing utilities
+  .section-padding {
+    padding: $spacing-3xl 0;
+    
+    @include mobile-only {
+      padding: $spacing-2xl 0;
+    }
+  }
+  
+  .container-padding {
+    padding-left: $spacing-lg;
+    padding-right: $spacing-lg;
+    
+    @include desktop-up {
+      padding-left: $spacing-2xl;
+      padding-right: $spacing-2xl;
+    }
+  }
+  
+  // Border utilities
+  .border-gradient {
+    border: 2px solid transparent;
+    background: linear-gradient(white, white) padding-box,
+                $gradient-primary border-box;
+  }
+  
+  // Loading states
+  .loading-skeleton {
+    @include loading-shimmer;
+    border-radius: $radius-md;
+  }
+  
+  // Glass effect
+  .glass {
+    @include glassmorphism();
+  }
+  
+  // Scroll utilities
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+  
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
