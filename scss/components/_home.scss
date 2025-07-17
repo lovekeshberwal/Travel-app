@@ -1,0 +1,310 @@
+.home-page {
+    // Hero section specific to home
+    .hero-home {
+      position: relative;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      
+      .hero-particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        
+        .particle {
+          position: absolute;
+          width: 4px;
+          height: 4px;
+          background: rgba(255, 255, 255, 0.5);
+          border-radius: 50%;
+          animation: particleFloat 8s linear infinite;
+          
+          @for $i from 1 through 50 {
+            &:nth-child(#{$i}) {
+              left: #{random(100)}s;
+              animation-delay: #{random(8)}s;
+              animation-duration: #{4 + random(8)}s;
+        
+          }
+        }
+      }
+    }
+    
+    // Featured destinations section
+    .featured-destinations {
+      @extend .section-padding;
+      background: linear-gradient(to bottom, #f8fafc, #ffffff);
+      
+      .section-header {
+        text-align: center;
+        margin-bottom: $spacing-3xl;
+        
+        .section-title {
+          font-size: $font-size-4xl;
+          font-weight: 700;
+          margin-bottom: $spacing-md;
+          @include text-gradient();
+          
+          @include mobile-only {
+            font-size: $font-size-2xl;
+          }
+        }
+        
+        .section-subtitle {
+          font-size: $font-size-xl;
+          color: #666;
+          max-width: 600px;
+          margin: 0 auto;
+          
+          @include mobile-only {
+            font-size: $font-size-lg;
+          }
+        }
+      }
+      
+      .destinations-grid {
+        @include grid-responsive(320px);
+        
+        .destination-card {
+          @extend .card-fade-in;
+          
+          &:hover {
+            .card-image img {
+              transform: scale(1.1);
+            }
+          }
+        }
+      }
+    }
+    
+    // Popular tours section
+    .popular-tours {
+      @extend .section-padding;
+      background: #f8fafc;
+      
+      .tours-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+        gap: $spacing-2xl;
+        
+        @include mobile-only {
+          grid-template-columns: 1fr;
+        }
+        
+        .tour-card {
+          @extend .card-fade-in;
+          
+          &.horizontal {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            
+            @include mobile-only {
+              grid-template-columns: 1fr;
+            }
+          }
+        }
+      }
+    }
+    
+    // Stats section
+    .stats-section {
+      @extend .section-padding;
+      background: $gradient-primary;
+      color: white;
+      
+      .stats-grid {
+        @include grid-responsive(200px);
+        
+        .stat-item {
+          text-align: center;
+          padding: $spacing-xl;
+          
+          .stat-icon {
+            font-size: $font-size-4xl;
+            margin-bottom: $spacing-lg;
+            opacity: 0.9;
+          }
+          
+          .stat-number {
+            font-size: $font-size-4xl;
+            font-weight: 700;
+            margin-bottom: $spacing-sm;
+            
+            .counter {
+              display: inline-block;
+            }
+          }
+          
+          .stat-label {
+            font-size: $font-size-lg;
+            opacity: 0.9;
+          }
+        }
+      }
+    }
+    
+    // Testimonials section
+    .testimonials-section {
+      @extend .section-padding;
+      background: white;
+      
+      .testimonials-slider {
+        max-width: 800px;
+        margin: 0 auto;
+        
+        .testimonial {
+          text-align: center;
+          padding: $spacing-2xl;
+          
+          .testimonial-text {
+            font-size: $font-size-xl;
+            font-style: italic;
+            margin-bottom: $spacing-xl;
+            line-height: 1.6;
+            color: #333;
+            
+            &::before,
+            &::after {
+              content: '"';
+              font-size: $font-size-3xl;
+              color: $primary-color;
+            }
+          }
+          
+          .testimonial-author {
+            .author-avatar {
+              width: 80px;
+              height: 80px;
+              border-radius: 50%;
+              margin: 0 auto $spacing-md;
+              overflow: hidden;
+              
+              img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+              }
+            }
+            
+            .author-name {
+              font-size: $font-size-lg;
+              font-weight: 600;
+              margin-bottom: $spacing-xs;
+            }
+            
+            .author-location {
+              color: #666;
+            }
+          }
+        }
+      }
+    }
+    
+    // Newsletter section
+    .newsletter-section {
+      @extend .section-padding;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-align: center;
+      
+      .newsletter-content {
+        max-width: 600px;
+        margin: 0 auto;
+        
+        .newsletter-title {
+          font-size: $font-size-3xl;
+          font-weight: 700;
+          margin-bottom: $spacing-md;
+          
+          @include mobile-only {
+            font-size: $font-size-2xl;
+          }
+        }
+        
+        .newsletter-text {
+          font-size: $font-size-lg;
+          margin-bottom: $spacing-2xl;
+          opacity: 0.9;
+        }
+        
+        .newsletter-form {
+          @include flex-center;
+          gap: $spacing-md;
+          max-width: 400px;
+          margin: 0 auto;
+          
+          @include mobile-only {
+            flex-direction: column;
+          }
+          
+          .newsletter-input {
+            flex: 1;
+            padding: $spacing-md $spacing-lg;
+            border: none;
+            border-radius: $radius-xl;
+            font-size: $font-size-md;
+            
+            &:focus {
+              outline: 2px solid rgba(255, 255, 255, 0.5);
+            }
+            
+            @include mobile-only {
+              width: 100%;
+            }
+          }
+          
+          .newsletter-btn {
+            @include button-primary;
+            background: white;
+            color: $primary-color;
+            padding: $spacing-md $spacing-xl;
+            
+            &:hover {
+              background: rgba(255, 255, 255, 0.9);
+            }
+            
+            @include mobile-only {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  // Particle animation
+  @keyframes particleFloat {
+    0% {
+      transform: translateY(100vh) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100px) rotate(360deg);
+      opacity: 0;
+    }
+  }
+  
+  // Counter animation
+  .counter {
+    display: inline-block;
+  }
+  
+  // Responsive adjustments
+  @include mobile-only {
+    .home-page {
+      .featured-destinations,
+      .popular-tours,
+      .stats-section,
+      .testimonials-section,
+      .newsletter-section {
+        padding: $spacing-2xl 0;
+      }
+    }
+  }
