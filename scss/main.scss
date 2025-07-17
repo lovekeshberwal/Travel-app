@@ -1,0 +1,35 @@
+// Import utilities first
+@import 'utils/variables';
+@import 'utils/mixins';
+@import 'utils/utilities';
+
+// Import components
+@import 'components/navbar';
+@import 'components/hero';
+@import 'components/cards';
+@import 'components/footer';
+@import 'components/animations';
+
+// Import pages
+@import 'pages/home';
+@import 'pages/destinations';
+@import 'pages/about';
+@import 'pages/contact';
+
+// Global styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+// Smooth scrolling
+html {
+  scroll-behavior: smooth;
+}
