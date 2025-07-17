@@ -1,0 +1,435 @@
+.destinations-page {
+    // Page header
+    .page-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-align: center;
+      padding: $spacing-3xl 0;
+      
+      .page-title {
+        font-size: $font-size-5xl;
+        font-weight: 700;
+        margin-bottom: $spacing-md;
+        @include text-shadow();
+        
+        @include mobile-only {
+          font-size: $font-size-3xl;
+        }
+      }
+      
+      .page-subtitle {
+        font-size: $font-size-xl;
+        opacity: 0.9;
+        
+        @include mobile-only {
+          font-size: $font-size-lg;
+        }
+      }
+    }
+    
+    // Filters section
+    .filters-section {
+      background: white;
+      padding: $spacing-2xl 0;
+      border-bottom: 1px solid #e5e7eb;
+      
+      .filters-container {
+        @include flex-between;
+        flex-wrap: wrap;
+        gap: $spacing-lg;
+        
+        @include mobile-only {
+          flex-direction: column;
+          align-items: stretch;
+        }
+      }
+      
+      .filter-tabs {
+        @include flex-center;
+        gap: $spacing-sm;
+        flex-wrap: wrap;
+        
+        .filter-tab {
+          padding: $spacing-sm $spacing-lg;
+          border: 2px solid transparent;
+          border-radius: $radius-full;
+          background: #f3f4f6;
+          color: #6b7280;
+          text-decoration: none;
+          font-weight: 500;
+          @include transition();
+          
+          &:hover {
+            background: #e5e7eb;
+            color: #374151;
+          }
+          
+          &.active {
+            background: $primary-color;
+            color: white;
+            border-color: $primary-color;
+          }
+        }
+      }
+      
+      .filter-controls {
+        @include flex-center;
+        gap: $spacing-md;
+        
+        .search-box {
+          position: relative;
+          
+          .search-input {
+            padding: $spacing-sm $spacing-lg $spacing-sm $spacing-3xl;
+            border: 2px solid #e5e7eb;
+            border-radius: $radius-xl;
+            font-size: $font-size-md;
+            width: 250px;
+            
+            &:focus {
+              outline: none;
+              border-color: $primary-color;
+            }
+            
+            @include mobile-only {
+              width: 100%;
+            }
+          }
+          
+          .search-icon {
+            position: absolute;
+            left: $spacing-md;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9ca3af;
+          }
+        }
+        
+        .sort-dropdown {
+          position: relative;
+          
+          .sort-btn {
+            @include flex-center;
+            gap: $spacing-sm;
+            padding: $spacing-sm $spacing-lg;
+            border: 2px solid #e5e7eb;
+            border-radius: $radius-xl;
+            background: white;
+            cursor: pointer;
+            @include transition();
+            
+            &:hover {
+              border-color: $primary-color;
+            }
+          }
+          
+          .sort-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: $radius-lg;
+            box-shadow: $shadow-xl;
+            padding: $spacing-sm;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            @include transition();
+            z-index: 10;
+            
+            &.show {
+              opacity: 1;
+              visibility: visible;
+              transform: translateY(0);
+            }
+            
+            .sort-option {
+              display: block;
+              width: 100%;
+              padding: $spacing-sm $spacing-md;
+              border: none;
+              background: none;
+              text-align: left;
+              border-radius: $radius-md;
+              @include transition();
+              
+              &:hover {
+                background: rgba($primary-color, 0.1);
+                color: $primary-color;
+              }
+            }
+          }
+        }
+      }
+    }
+    
+    // Destinations grid
+    .destinations-content {
+      @extend .section-padding;
+      
+      .destinations-grid {
+        @include grid-responsive(300px);
+        margin-bottom: $spacing-2xl;
+        
+        .destination-card {
+          @extend .card-fade-in;
+          position: relative;
+          
+          .card-image {
+            height: 250px;
+            position: relative;
+            overflow: hidden;
+            
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              @include transition(transform);
+            }
+            
+            .image-overlay {
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: linear-gradient(
+                to bottom,
+                transparent 0%,
+                rgba(0, 0, 0, 0.7) 100%
+              );
+            }
+            
+            .destination-info {
+              position: absolute;
+              bottom: $spacing-md;
+              left: $spacing-md;
+              right: $spacing-md;
+              color: white;
+              z-index: 2;
+              
+              .destination-name {
+                font-size: $font-size-lg;
+                font-weight: 600;
+                margin-bottom: $spacing-xs;
+                @include text-shadow();
+              }
+              
+              .destination-location {
+                @include flex-center;
+                justify-content: flex-start;
+                gap: $spacing-xs;
+                font-size: $font-size-sm;
+                opacity: 0.9;
+                
+                i {
+                  font-size: $font-size-xs;
+                }
+              }
+            }
+            
+            .rating-badge {
+              position: absolute;
+              top: $spacing-md;
+              right: $spacing-md;
+              background: rgba(255, 255, 255, 0.9);
+              color: #333;
+              padding: $spacing-xs $spacing-sm;
+              border-radius: $radius-full;
+              font-size: $font-size-xs;
+              font-weight: 600;
+              @include flex-center;
+              gap: $spacing-xs;
+              
+              i {
+                color: #fbbf24;
+              }
+            }
+          }
+          
+          .card-body {
+            padding: $spacing-lg;
+            
+            .destination-meta {
+              @include flex-between;
+              margin-bottom: $spacing-md;
+              
+              .price {
+                font-size: $font-size-xl;
+                font-weight: 700;
+                color: $primary-color;
+                
+                .currency {
+                  font-size: $font-size-md;
+                }
+                
+                .period {
+                  font-size: $font-size-sm;
+                  font-weight: 400;
+                  color: #666;
+                }
+              }
+              
+              .duration {
+                @include flex-center;
+                gap: $spacing-xs;
+                color: #666;
+                font-size: $font-size-sm;
+                
+                i {
+                  color: $primary-color;
+                }
+              }
+            }
+            
+            .destination-features {
+              @include flex-center;
+              gap: $spacing-sm;
+              flex-wrap: wrap;
+              margin-bottom: $spacing-lg;
+              
+              .feature {
+                background: rgba($primary-color, 0.1);
+                color: $primary-color;
+                padding: $spacing-xs $spacing-sm;
+                border-radius: $radius-full;
+                font-size: $font-size-xs;
+                font-weight: 500;
+              }
+            }
+            
+            .card-actions {
+              @include flex-between;
+              gap: $spacing-sm;
+              
+              .btn-explore {
+                @include button-primary;
+                flex: 1;
+              }
+              
+              .btn-wishlist {
+                width: 40px;
+                height: 40px;
+                @include flex-center;
+                border: 2px solid #e5e7eb;
+                border-radius: 50%;
+                background: white;
+                color: #9ca3af;
+                @include transition();
+                
+                &:hover {
+                  border-color: #ef4444;
+                  color: #ef4444;
+                }
+                
+                &.active {
+                  border-color: #ef4444;
+                  background: #ef4444;
+                  color: white;
+                }
+              }
+            }
+          }
+          
+          &:hover {
+            .card-image img {
+              transform: scale(1.1);
+            }
+          }
+        }
+      }
+      
+      // Load more section
+      .load-more {
+        text-align: center;
+        
+        .load-more-btn {
+          @include button-primary;
+          padding: $spacing-md $spacing-2xl;
+          font-size: $font-size-lg;
+        }
+      }
+    }
+    
+    // Empty state
+    .empty-state {
+      text-align: center;
+      padding: $spacing-3xl 0;
+      
+      .empty-icon {
+        font-size: $font-size-5xl;
+        color: #d1d5db;
+        margin-bottom: $spacing-lg;
+      }
+      
+      .empty-title {
+        font-size: $font-size-2xl;
+        font-weight: 600;
+        margin-bottom: $spacing-md;
+        color: #374151;
+      }
+      
+      .empty-text {
+        color: #6b7280;
+        margin-bottom: $spacing-lg;
+      }
+      
+      .empty-action {
+        @include button-primary;
+      }
+    }
+  }
+  
+  // Filter animations
+  .filter-tab {
+    position: relative;
+    overflow: hidden;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+      );
+      @include transition(left, 0.6s);
+    }
+    
+    &:hover::before {
+      left: 100%;
+    }
+  }
+  
+  // Responsive adjustments
+  @include mobile-only {
+    .destinations-page {
+      .filters-section {
+        padding: $spacing-lg 0;
+        
+        .filter-tabs {
+          justify-content: center;
+        }
+        
+        .filter-controls {
+          flex-direction: column;
+          width: 100%;
+          
+          .search-box,
+          .sort-dropdown {
+            width: 100%;
+          }
+        }
+      }
+      
+      .destinations-grid {
+        @include grid-responsive(280px);
+      }
+    }
+  }
