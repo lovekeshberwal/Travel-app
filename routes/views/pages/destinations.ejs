@@ -1,0 +1,42 @@
+<div class="container mx-auto px-4 py-20"></div>
+    <div class="text-center mb-16">
+        <h1 class="text-5xl font-bold mb-4">Our Destinations</h1>
+        <p class="text-xl text-base-content/70">Explore the world's most beautiful places</p>
+    </div>
+    
+    <!-- Filter Tabs -->
+    <div class="tabs tabs-boxed justify-center mb-12">
+        <a class="tab tab-active">All</a>
+        <a class="tab">Asia</a>
+        <a class="tab">Europe</a>
+        <a class="tab">America</a>
+        <a class="tab">Africa</a>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <% destinations.forEach(destination => { %>
+            <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-up">
+                <figure class="relative overflow-hidden">
+                    <img src="<%= destination.image %>" alt="<%= destination.name %>" class="w-full h-48 object-cover transition-transform duration-300 hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <div class="badge badge-primary">
+                            <i class="fas fa-star mr-1"></i>
+                            <%= destination.rating %>
+                        </div>
+                    </div>
+                </figure>
+                <div class="card-body p-4">
+                    <h2 class="card-title text-lg"><%= destination.name %></h2>
+                    <div class="flex justify-between items-center mt-2">
+                        <span class="text-lg font-bold text-primary"><%= destination.price %></span>
+                        <a href="/destination/<%= destination.id %>" class="btn btn-primary btn-sm">
+                            <i class="fas fa-eye mr-1"></i>
+                            View
+                        </a>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</div>
