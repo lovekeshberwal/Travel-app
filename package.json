@@ -1,27 +1,10 @@
 {
-  "name": "travel-explorer",
-  "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "@tailwindcss/typography": "^0.5.16",
-    "autoprefixer": "^10.4.21",
-    "concurrently": "^9.2.0",
-    "daisyui": "^5.0.46",
-    "ejs": "^3.1.10",
-    "express": "^5.1.0",
-    "nodemon": "^3.1.10",
-    "postcss-cli": "^11.0.1",
-    "sass": "^1.89.2",
-    "tailwindcss": "^4.1.11"
-  },
-  "devDependencies": {
-    "postcss": "^8.5.6"
+    "start": "node server.js",
+    "dev": "concurrently \"npm run watch-css\" \"npm run watch-scss\" \"nodemon server.js\"",
+    "build-css": "tailwindcss -i ./scss/tailwind.scss -o ./public/css/tailwind.css --watch",
+    "watch-css": "tailwindcss -i ./scss/tailwind.scss -o ./public/css/tailwind.css --watch",
+    "watch-scss": "sass --watch scss/main.scss:public/css/style.css",
+    "build-scss": "sass scss/main.scss:public/css/style.css"
   }
 }
