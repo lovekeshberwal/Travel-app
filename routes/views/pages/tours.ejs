@@ -1,0 +1,49 @@
+<div class="container mx-auto px-4 py-20"></div>
+    <div class="text-center mb-16">
+        <h1 class="text-5xl font-bold mb-4">Our Tours</h1>
+        <p class="text-xl text-base-content/70">Expertly crafted experiences for every traveler</p>
+    </div>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <% tours.forEach(tour => { %>
+            <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <figure class="relative overflow-hidden h-64">
+                    <img src="<%= tour.image %>" alt="<%= tour.name %>" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110">
+                    <div class="absolute top-4 left-4">
+                        <div class="badge badge-primary badge-lg">
+                            <i class="fas fa-clock mr-1"></i>
+                            <%= tour.duration %>
+                        </div>
+                    </div>
+                </figure>
+                <div class="card-body">
+                    <h2 class="card-title text-2xl"><%= tour.name %></h2>
+                    <p class="text-base-content/70">Experience an unforgettable journey through stunning landscapes and rich cultures.</p>
+                    
+                    <div class="flex flex-wrap gap-2 my-4">
+                        <div class="badge badge-outline">
+                            <i class="fas fa-users mr-1"></i>
+                            Small Group
+                        </div>
+                        <div class="badge badge-outline">
+                            <i class="fas fa-utensils mr-1"></i>
+                            Meals Included
+                        </div>
+                        <div class="badge badge-outline">
+                            <i class="fas fa-bed mr-1"></i>
+                            Accommodation
+                        </div>
+                    </div>
+                    
+                    <div class="card-actions justify-between items-center">
+                        <div class="text-2xl font-bold text-primary"><%= tour.price %></div>
+                        <a href="/tour/<%= tour.id %>" class="btn btn-primary">
+                            <i class="fas fa-info-circle mr-1"></i>
+                            View Details
+                        </a>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</div>
