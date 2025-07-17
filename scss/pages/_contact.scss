@@ -1,0 +1,392 @@
+.contact-page {
+    // Hero section
+    .contact-hero {
+      background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+      color: white;
+      text-align: center;
+      padding: $spacing-3xl 0;
+      position: relative;
+      
+      .hero-content {
+        .hero-title {
+          font-size: $font-size-5xl;
+          font-weight: 700;
+          margin-bottom: $spacing-md;
+          @include text-shadow();
+          
+          @include mobile-only {
+            font-size: $font-size-3xl;
+          }
+        }
+        
+        .hero-subtitle {
+          font-size: $font-size-xl;
+          opacity: 0.9;
+          
+          @include mobile-only {
+            font-size: $font-size-lg;
+          }
+        }
+      }
+    }
+    
+    // Contact content
+    .contact-content {
+      @extend .section-padding;
+      
+      .contact-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: $spacing-3xl;
+        
+        @include mobile-only {
+          grid-template-columns: 1fr;
+          gap: $spacing-2xl;
+        }
+      }
+      
+      // Contact form
+      .contact-form {
+        background: white;
+        padding: $spacing-2xl;
+        border-radius: $radius-2xl;
+        box-shadow: $shadow-xl;
+        
+        .form-title {
+          font-size: $font-size-2xl;
+          font-weight: 600;
+          margin-bottom: $spacing-xl;
+          @include text-gradient();
+        }
+        
+        .form-group {
+          margin-bottom: $spacing-lg;
+          
+          &.form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: $spacing-md;
+            
+            @include mobile-only {
+              grid-template-columns: 1fr;
+            }
+          }
+          
+          .form-label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: $spacing-sm;
+            color: #374151;
+          }
+          
+          .form-input,
+          .form-select,
+          .form-textarea {
+            width: 100%;
+            padding: $spacing-md;
+            border: 2px solid #e5e7eb;
+            border-radius: $radius-lg;
+            font-size: $font-size-md;
+            @include transition();
+            
+            &:focus {
+              outline: none;
+              border-color: $primary-color;
+              box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+            }
+            
+            &::placeholder {
+              color: #9ca3af;
+            }
+          }
+          
+          .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+          }
+          
+          .form-error {
+            color: #ef4444;
+            font-size: $font-size-sm;
+            margin-top: $spacing-xs;
+          }
+        }
+        
+        .form-submit {
+          @include button-primary;
+          width: 100%;
+          padding: $spacing-md $spacing-xl;
+          font-size: $font-size-lg;
+          
+          i {
+            margin-right: $spacing-sm;
+          }
+          
+          &:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+          }
+        }
+        
+        .form-success {
+          background: rgba(#10b981, 0.1);
+          color: #10b981;
+          padding: $spacing-md;
+          border-radius: $radius-lg;
+          margin-top: $spacing-lg;
+          text-align: center;
+          
+          i {
+            margin-right: $spacing-sm;
+          }
+        }
+      }
+      
+      // Contact info
+      .contact-info {
+        .info-cards {
+          display: grid;
+          gap: $spacing-lg;
+          
+          .info-card {
+            background: white;
+            padding: $spacing-xl;
+            border-radius: $radius-xl;
+            box-shadow: $shadow-lg;
+            @include transition();
+            
+            &:hover {
+              transform: translateY(-5px);
+              box-shadow: $shadow-xl;
+            }
+            
+            .card-content {
+              @include flex-center;
+              justify-content: flex-start;
+              gap: $spacing-lg;
+              
+              .card-icon {
+                width: 60px;
+                height: 60px;
+                background: $gradient-primary;
+                border-radius: 50%;
+                @include flex-center;
+                color: white;
+                font-size: $font-size-xl;
+                flex-shrink: 0;
+              }
+              
+              .card-info {
+                .card-title {
+                  font-size: $font-size-lg;
+                  font-weight: 600;
+                  margin-bottom: $spacing-xs;
+                  color: #1f2937;
+                }
+                
+                .card-text {
+                  color: #6b7280;
+                  line-height: 1.5;
+                }
+              }
+            }
+            
+            // Icon specific colors
+            &.location .card-icon {
+              background: linear-gradient(135deg, #ef4444, #f97316);
+            }
+            
+            &.phone .card-icon {
+              background: linear-gradient(135deg, #10b981, #059669);
+            }
+            
+            &.email .card-icon {
+              background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            }
+            
+            &.hours .card-icon {
+              background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            }
+          }
+        }
+        
+        // Map section
+        .map-section {
+          margin-top: $spacing-2xl;
+          
+          .map-container {
+            background: #f3f4f6;
+            height: 300px;
+            border-radius: $radius-xl;
+            @include flex-center;
+            color: #6b7280;
+            font-size: $font-size-lg;
+            
+            .map-placeholder {
+              text-align: center;
+              
+              i {
+                font-size: $font-size-4xl;
+                margin-bottom: $spacing-md;
+              }
+            }
+          }
+        }
+      }
+    }
+    
+    // FAQ section
+    .faq-section {
+      @extend .section-padding;
+      background: #f8fafc;
+      
+      .section-header {
+        text-align: center;
+        margin-bottom: $spacing-3xl;
+        
+        .section-title {
+          font-size: $font-size-3xl;
+          font-weight: 700;
+          margin-bottom: $spacing-md;
+          @include text-gradient();
+        }
+        
+        .section-subtitle {
+          font-size: $font-size-lg;
+          color: #6b7280;
+        }
+      }
+      
+      .faq-container {
+        max-width: 800px;
+        margin: 0 auto;
+        
+        .faq-item {
+          background: white;
+          border-radius: $radius-xl;
+          margin-bottom: $spacing-md;
+          box-shadow: $shadow-md;
+          overflow: hidden;
+          
+          .faq-question {
+            width: 100%;
+            padding: $spacing-xl;
+            background: none;
+            border: none;
+            text-align: left;
+            font-size: $font-size-lg;
+            font-weight: 600;
+            color: #1f2937;
+            cursor: pointer;
+            @include flex-between;
+            @include transition();
+            
+            &:hover {
+              background: rgba($primary-color, 0.05);
+            }
+            
+            .question-icon {
+              @include transition(transform);
+            }
+            
+            &.active .question-icon {
+              transform: rotate(180deg);
+            }
+          }
+          
+          .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            @include transition(max-height, 0.3s);
+            
+            .answer-content {
+              padding: 0 $spacing-xl $spacing-xl;
+              color: #6b7280;
+              line-height: 1.6;
+            }
+            
+            &.active {
+              max-height: 200px;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  // Form animations
+  .form-input,
+  .form-select,
+  .form-textarea {
+    position: relative;
+    
+    &:focus {
+      animation: inputFocus 0.3s ease-out;
+    }
+  }
+  
+  @keyframes inputFocus {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.02);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  // Loading state for form
+  .form-loading {
+    .form-submit {
+      position: relative;
+      color: transparent;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 20px;
+        height: 20px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-top: 2px solid white;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        animation: spin 1s linear infinite;
+      }
+    }
+  }
+  
+  @keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+  
+  // Responsive adjustments
+  @include mobile-only {
+    .contact-page {
+      .contact-content {
+        padding: $spacing-2xl 0;
+      }
+      
+      .contact-form,
+      .info-cards .info-card {
+        padding: $spacing-lg;
+      }
+      
+      .faq-section {
+        padding: $spacing-2xl 0;
+        
+        .faq-question {
+          padding: $spacing-lg;
+          font-size: $font-size-md;
+        }
+        
+        .faq-answer .answer-content {
+          padding: 0 $spacing-lg $spacing-lg;
+        }
+      }
+    }
+  }
