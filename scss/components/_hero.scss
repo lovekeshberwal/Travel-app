@@ -1,0 +1,211 @@
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    @include flex-center;
+    overflow: hidden;
+    
+    // Background
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: $gradient-hero;
+      z-index: 1;
+    }
+    
+    // Background image overlay
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    
+    // Animated background elements
+    .hero-shapes {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      
+      .shape {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        animation: float 6s ease-in-out infinite;
+        
+        &:nth-child(1) {
+          width: 80px;
+          height: 80px;
+          top: 20%;
+          left: 10%;
+          animation-delay: 0s;
+        }
+        
+        &:nth-child(2) {
+          width: 120px;
+          height: 120px;
+          top: 60%;
+          right: 15%;
+          animation-delay: 2s;
+        }
+        
+        &:nth-child(3) {
+          width: 60px;
+          height: 60px;
+          bottom: 20%;
+          left: 20%;
+          animation-delay: 4s;
+        }
+      }
+    }
+    
+    // Content
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: white;
+      max-width: 800px;
+      padding: 0 $spacing-lg;
+      
+      .hero-title {
+        font-size: $font-size-5xl;
+        font-weight: 700;
+        margin-bottom: $spacing-lg;
+        @include text-shadow();
+        animation: slideUp 1s ease-out;
+        
+        @include mobile-only {
+          font-size: $font-size-3xl;
+        }
+        
+        .highlight {
+          @include text-gradient(linear-gradient(45deg, #ffd700, #ffed4e));
+        }
+      }
+      
+      .hero-subtitle {
+        font-size: $font-size-xl;
+        margin-bottom: $spacing-2xl;
+        opacity: 0.9;
+        animation: slideUp 1s ease-out 0.2s both;
+        
+        @include mobile-only {
+          font-size: $font-size-lg;
+        }
+      }
+      
+      .hero-cta {
+        @include flex-center;
+        gap: $spacing-lg;
+        flex-wrap: wrap;
+        animation: slideUp 1s ease-out 0.4s both;
+        
+        .btn-primary {
+          @include button-primary;
+          font-size: $font-size-lg;
+          padding: $spacing-lg $spacing-2xl;
+          
+          i {
+            margin-right: $spacing-sm;
+          }
+          
+          &:hover {
+            transform: translateY(-3px) scale(1.05);
+          }
+        }
+        
+        .btn-secondary {
+          background: rgba(255, 255, 255, 0.2);
+          color: white;
+          border: 2px solid rgba(255, 255, 255, 0.3);
+          padding: $spacing-lg $spacing-2xl;
+          border-radius: $radius-xl;
+          text-decoration: none;
+          font-weight: 500;
+          @include transition();
+          
+          &:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+          }
+        }
+      }
+    }
+    
+    // Scroll indicator
+    .scroll-indicator {
+      position: absolute;
+      bottom: $spacing-2xl;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      
+      .scroll-arrow {
+        width: 30px;
+        height: 30px;
+        border: 2px solid white;
+        border-radius: 50%;
+        @include flex-center;
+        animation: bounce 2s infinite;
+        cursor: pointer;
+        @include transition();
+        
+        &:hover {
+          background: rgba(255, 255, 255, 0.2);
+        }
+        
+        i {
+          color: white;
+          font-size: $font-size-sm;
+        }
+      }
+    }
+  }
+  
+  // Hero variants
+  .hero-minimal {
+    min-height: 60vh;
+    background: $gradient-primary;
+    
+    .hero-content {
+      .hero-title {
+        font-size: $font-size-4xl;
+        
+        @include mobile-only {
+          font-size: $font-size-2xl;
+        }
+      }
+      
+      .hero-subtitle {
+        font-size: $font-size-lg;
+      }
+    }
+  }
+  
+  .hero-image {
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    
+    &::before {
+      background: rgba(0, 0, 0, 0.5);
+    }
+  }
+  
+  // Parallax effect
+  .hero-parallax {
+    .hero-bg {
+      transform: translateZ(0);
+      will-change: transform;
+    }
+  }
