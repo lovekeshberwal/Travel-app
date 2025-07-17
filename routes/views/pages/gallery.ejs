@@ -1,0 +1,56 @@
+<div class="hero min-h-96 bg-gradient-to-r from-secondary to-accent"></div>
+    <div class="hero-content text-center text-secondary-content">
+        <div class="max-w-md">
+            <h1 class="text-5xl font-bold">Gallery</h1>
+            <p class="text-xl mt-4">Captured moments from our adventures</p>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto px-4 py-20">
+    <!-- Filter Tabs -->
+    <div class="tabs tabs-boxed justify-center mb-12">
+        <a class="tab tab-active">All</a>
+        <a class="tab">Landscapes</a>
+        <a class="tab">Culture</a>
+        <a class="tab">Adventure</a>
+        <a class="tab">Food</a>
+    </div>
+    
+    <!-- Masonry Grid -->
+    <div class="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
+        <% for(let i = 1; i <= 12; i++) { %>
+            <div class="break-inside-avoid">
+                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+                    <figure class="relative overflow-hidden group">
+                        <img src="/images/gallery<%= i %>.jpg" alt="Gallery Image <%= i %>" class="w-full transition-transform duration-300 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                            <i class="fas fa-search-plus text-white text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
+                        </div>
+                    </figure>
+                    <div class="card-body p-4">
+                        <div class="flex justify-between items-center">
+                            <div class="badge badge-primary">Landscape</div>
+                            <div class="flex gap-2">
+                                <button class="btn btn-circle btn-xs btn-ghost">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                                <button class="btn btn-circle btn-xs btn-ghost">
+                                    <i class="fas fa-share"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% } %>
+    </div>
+    
+    <!-- Load More Button -->
+    <div class="text-center mt-12">
+        <button class="btn btn-primary btn-lg">
+            <i class="fas fa-plus mr-2"></i>
+            Load More Photos
+        </button>
+    </div>
+</div>
